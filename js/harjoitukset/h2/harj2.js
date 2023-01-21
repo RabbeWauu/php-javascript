@@ -20,9 +20,12 @@ max = Math.floor(document.querySelector('#ylaraja').value);
 let random = Math.floor(Math.random() * (max - min + 1)) + min;
 console.log("Arvottu luku: " + random);
 
+
 function numberGuess(min, max) {
     let arvaus = document.querySelector('#arvaus').value;
     let vihje = document.querySelector('#vihje');
+    console.log("Random: " + random);
+    console.log("Arvaus: " + arvaus);
     if (min > max) {
         document.getElementById('vastaus').textContent = "Alaraja ei voi olla suurempi kuin yläraja!";
     } else if (arvaus < min || arvaus > max) {
@@ -37,10 +40,10 @@ function numberGuess(min, max) {
 
     if (arvaus < random) {
         vihje.textContent = "Vihje: Lukusi oli pienempi kuin oikea vastaus.";
-    } else if (arvaus > random) {
-        vihje.textContent = "Vihje: Lukusi oli suurempi kuin oikea vastaus.";
     } else if (arvaus == random) {
         vihje.textContent = "";
+    } else {
+        vihje.textContent = "Vihje: Lukusi oli suurempi kuin oikea vastaus.";
     }
 }
 
@@ -54,3 +57,33 @@ function counter() {
         laskuri.textContent = "Oikeaan vastaukseen meni " + i + " kertaa.";
     }
 }
+
+function date() {
+    let toistomaara = document.querySelector('#toistomaara').value;
+    for (let i = 0; i < toistomaara; i++) {
+        let dateNew = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + i + 1);
+        document.querySelector('#dates').innerHTML += dateNew + "<br>";
+    }
+}
+
+const canvas = document.querySelector('#myCanvas');
+const ctx = canvas.getContext('2d');
+let x = canvas.width / 2;
+let y = canvas.height - 30;
+let dx = 0.5;
+let dy = -1.5;
+
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, 10, 0, Math.PI * 2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+}
+function moveBall() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    x += dx;
+    y += dy;
+}
+setInterval(moveBall, 1);

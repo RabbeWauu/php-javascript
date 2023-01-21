@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Harjoitus 2</title>
     <script src="harj2.js" defer></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,16 +29,26 @@
     <button onclick="bussiHinta()">Harjoitus 1 - Bussilipun hinta</button>
     <p id="bussilippu"></p>
     <h2>Harjoitus 2.2 ja 2.3</h2>
+    <p>Aseta ala- ja yläraja, ja lataa sivu uudelleen arpoaksesi luku oikein.</p>
     <label for="alaraja">Alaraja:</label><br>
-        <input type="number" name="alaraja" id="alaraja" placeholder="Alaraja"><br>
-        <label for="ylaraja">Yläraja:</label><br>
-        <input type="number" name="ylaraja" id="ylaraja" placeholder="Yläraja"><br>
-        <label for="arvaus">Arvaus:</label> <br>
-        <input type="number" name="arvaus" id="arvaus" placeholder="Arvaus"><br>
-        <button onclick="numberGuess(), counter()">Arvaa</button>
+    <input type="number" name="alaraja" id="alaraja" placeholder="Alaraja"><br>
+    <label for="ylaraja">Yläraja:</label><br>
+    <input type="number" name="ylaraja" id="ylaraja" placeholder="Yläraja"><br>
+    <label for="arvaus">Arvaus:</label> <br>
+    <input type="number" name="arvaus" id="arvaus" placeholder="Arvaus"><br>
+    <button onclick="numberGuess(), counter()">Arvaa</button>
     <p id="vastaus"></p>
     <p id="laskuri"></p>
     <p id="vihje"></p>
+    <h2>2.4 Toistorakenne</h2>
+    <label for="toistoja">Montako toistoa:</label><br>
+    <input type="number" name="toistomaara" id="toistomaara" placeholder="Toistomäärä"><br><br>
+    <button onclick="date()">2.4 Toistorakenne</button>
+    <div id="dates">
+
+    </div>
+    <h2>2.5 Breakout Game</h2>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
 </body>
 
 </html>
